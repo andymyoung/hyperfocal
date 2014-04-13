@@ -5,6 +5,8 @@ require 'sinatra/reloader' if development?
 require 'slim'
 require 'sass'
 
+
+
 get('/styles.css') { scss :styles }
 
 get '/' do
