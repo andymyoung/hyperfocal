@@ -1,0 +1,42 @@
+$black: #444;
+$white: #fff;
+
+$header-font: 'Ruda', sans-serif;
+$body-font: Helvetica, sans-serif;
+
+header h1 {
+font-family : $header-font;
+text-align : left;
+font-size : 48pt;
+/*background-color:#bbbbbb;*/
+padding-left : 10px;
+/*padding-top : 3px;*/
+padding-bottom : 3px;
+}
+
+header h2 {
+font-family : $header-font;
+text-align : left;
+font-size : 18pt;
+padding-left : 10px;
+/*padding-top : 3px;*/
+padding-bottom : 3px;
+}
+
+h1 {
+font-family : $body-font;
+text-align : left;
+font-size : 18pt;
+padding-left : 10px;
+padding-top : 3px;
+padding-bottom : 3px;
+}
+
+h2 {
+font-family : $body-font;
+text-align : left;
+font-size : 16pt;
+padding-left : 10px;
+padding-top : 3px;
+padding-bottom : 3px;
+}
