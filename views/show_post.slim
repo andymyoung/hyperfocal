@@ -1,0 +1,5 @@
+h1= @post.title
+p Date: #{@post.date.strftime("%e %B %Y") if @post.date}
+#{@post.body}
+
+p <a href="/posts">back to posts index</a>

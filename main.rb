@@ -4,7 +4,9 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'slim'
 require 'sass'
+require 'pry'
 
+require './post'
 
 
 get('/styles.css') { scss :styles }
@@ -12,6 +14,17 @@ get('/styles.css') { scss :styles }
 get '/' do
   @title = "Hyperfocal"
   slim :home
+end
+
+get '/posts' do
+  #binding.pry
+  @posts = Post.all
+  slim :posts
+end
+
+get '/posts/:id' do
+  @post = Post.get(params[:id])
+  slim :show_post
 end
 
 get '/gaming' do
