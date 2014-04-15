@@ -6,7 +6,7 @@ require 'slim'
 require 'sass'
 require 'pry'
 
-require './post'
+require_relative 'post'
 
 
 get('/styles.css') { scss :styles }
