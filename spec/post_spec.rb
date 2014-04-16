@@ -34,3 +34,4 @@ describe 'Post object' do
   end
 
 end
+

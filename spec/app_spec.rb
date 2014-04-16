@@ -14,4 +14,10 @@ describe 'Home Page'  do
     last_response.body.must_include "Andy M. Young's Website"
   end
 
+  # it 'should contain Whoa!' do
+  #   get '/'
+  #   last_response.must_be :ok?
+  #   last_response.body.must_include "Whoa!"
+  # end
+
 end

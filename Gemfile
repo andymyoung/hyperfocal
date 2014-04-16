@@ -6,10 +6,15 @@ gem "sinatra-contrib"
 gem "rake"
 gem "slim"
 gem "sass"
-gem "pry"
 gem "sqlite3"
 gem "data_mapper"
 gem "dm-sqlite-adapter"
-gem "minitest"
-gem "minitest-reporters"
-gem "rack-test"
+
+group :development, :test do
+  gem "pry"
+  gem "minitest"
+  gem "minitest-reporters"
+  gem "rack-test"
+  gem "rb-fsevent", :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem "guard-minitest"
+end
