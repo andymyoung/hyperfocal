@@ -7,6 +7,8 @@ require 'sass'
 require 'pry'
 
 require_relative 'post'
+require_relative 'pinboard'
+
 
 
 get('/styles.css') { scss :styles }
