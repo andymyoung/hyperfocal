@@ -13,6 +13,9 @@ describe 'Pinboard object' do
     @pinboard.tags.length.must_be :>, 0
   end
 
+  it "should return all entries" do
+    @pinboard.all.length.must_be :>, 0
+  end
 
 
 end
