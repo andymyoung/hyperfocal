@@ -10,11 +10,13 @@ describe 'Pinboard object' do
   end
 
   it "should provide a list of tags" do
-    @pinboard.tags.length.must_be :>, 0
+    @pinboard.getTags.length.must_be :>, 0
+    puts @pinboard.getTags
   end
 
   it "should return all entries" do
-    @pinboard.all.length.must_be :>, 0
+    @pinboard.getPosts.length.must_be :>, 0
+    puts @pinboard.getPosts
   end
 
 
