@@ -32,6 +32,16 @@ class Pinboard
     @user_token = "?auth_token=" + config_file["token"]
   end
 
+  def up?
+    url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    response.code == '200'
+  end
+
   def getTags
     url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
     uri = URI.parse(url)
