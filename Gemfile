@@ -12,9 +12,8 @@ gem "dm-sqlite-adapter"
 
 group :development, :test do
   gem "pry"
-  gem "minitest"
-  gem "minitest-reporters"
+  gem "rspec"
   gem "rack-test"
   gem "rb-fsevent", :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem "guard-minitest"
+  gem "guard-rspec"
 end

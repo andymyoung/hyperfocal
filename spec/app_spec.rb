@@ -1,23 +1,12 @@
-require_relative './spec_helper'
+require File.expand_path '../spec_helper.rb', __FILE__
 
-describe 'Home Page'  do
-
-  it 'should contain Hyperfocal' do
+describe "My Sinatra Application" do
+  it "should allow accessing the home page" do
     get '/'
-    last_response.must_be :ok?
-    last_response.body.must_include "Hyperfocal"
+    last_response.should be_ok
+    #binding.pry
   end
-
-  it 'should contain Andy M. Young\'s Website' do
-    get '/'
-    last_response.must_be :ok?
-    last_response.body.must_include "Andy M. Young's Website"
-  end
-
-  # it 'should contain Whoa!' do
-  #   get '/'
-  #   last_response.must_be :ok?
-  #   last_response.body.must_include "Whoa!"
-  # end
 
 end
+
+
