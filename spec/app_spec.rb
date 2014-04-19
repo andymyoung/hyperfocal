@@ -16,8 +16,16 @@ describe 'Pinboard' do
     @pinboard = Pinboard.new
   end
 
-  it "Pinboard service should be up" do
+  it "service should be up" do
     expect(@pinboard).to be_up
+  end
+
+  it "getTags should return an Array" do
+    expect(@pinboard.getTags).to be_kind_of(Array)
+  end
+
+    it "getPosts should return an Array" do
+    expect(@pinboard.getPosts).to be_kind_of(Array)
   end
 
 end

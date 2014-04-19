@@ -1,6 +1,8 @@
 require 'yaml'
 require 'net/http'
+require 'nokogiri'
 require 'pry'
+require 'xmlsimple'
 
 PINBOARD_V1_API = "https://api.pinboard.in/v1"
 GET_TAGS_ENDPOINT = "/tags/get"
@@ -43,16 +45,23 @@ class Pinboard
   end
 
   def getTags
+    tags = []
     url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
-    response.body
+    xml_response = Nokogiri::XML(response.body)
+    tag_elements = xml_response.xpath("//tag")
+    tag_elements.each do |tag|
+      tags << tag.get_attribute('tag')
+    end
+    return tags
   end
 
   def getPosts(tag = '')
+    posts = []
     url = "#{PINBOARD_V1_API}#{GET_POSTS_ENDPOINT}#{@user_token}"
     if tag.length > 0
       url = url + "&tag=#{tag}"
@@ -62,7 +71,15 @@ class Pinboard
     http.use_ssl = true
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
-    response.body
+    foo = XmlSimple.xml_in(response.body)
+    a = foo["post"]
+    a.each do |entry|
+      h = {}
+      h[:desc] = entry["description"]
+      h[:url] =  entry["href"]
+      posts << h
+    end
+    return posts
   end
 
 end
