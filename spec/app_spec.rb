@@ -4,7 +4,7 @@ require File.expand_path '../spec_helper.rb', __FILE__
 describe "My Sinatra Application" do
   it "should allow access to the home page" do
     get '/'
-    last_response.should be_ok
+    expect(last_response).to be_ok
     #binding.pry
   end
 
@@ -17,7 +17,7 @@ describe 'Pinboard' do
   end
 
   it "Pinboard service should be up" do
-    @pinboard.should be_up
+    expect(@pinboard).to be_up
   end
 
 end
