@@ -60,7 +60,7 @@ class Pinboard
     return tags
   end
 
-  def getPosts(tag = '')
+  def getLinks(tag = '')
     posts = []
     url = "#{PINBOARD_V1_API}#{GET_POSTS_ENDPOINT}#{@user_token}"
     if tag.length > 0

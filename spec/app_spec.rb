@@ -24,7 +24,7 @@ describe 'Pinboard' do
   end
 
     it "getPosts should return an Array" do
-    expect(@pinboard.getPosts).to be_kind_of(Array)
+    expect(@pinboard.getLinks).to be_kind_of(Array)
   end
 
 end
