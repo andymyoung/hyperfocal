@@ -5,7 +5,6 @@ describe "My Sinatra Application" do
   it "should allow access to the home page" do
     get '/'
     expect(last_response).to be_ok
-    #binding.pry
   end
 
 end
