@@ -2,6 +2,7 @@
 
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'better_errors' if development?
 require 'slim'
 require 'sass'
 require 'pry'
@@ -29,9 +30,19 @@ get '/posts/:id' do
   slim :show_post
 end
 
-get '/gaming' do
-  @title = "Gaming"
-  slim :gaming
+get '/links' do
+  @title = "Links"
+  @pinboard = Pinboard.new
+  slim :links
+end
+
+get '/links/:tag' do
+  @title = "Links"
+  if params[:tag].length > 0
+    @tag = params[:tag]
+  end
+  @pinboard = Pinboard.new
+  slim :links
 end
 
 not_found do
