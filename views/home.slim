@@ -1,11 +1,22 @@
-header
-  h2 Andy M. Young's Website
+.title
+  | Andy M. Young's Website
+  P
 
-P Whoa!
 - foo = Pinboard.new
-h2 Pinboard Tags Example
-= foo.getTags
 
-hr
-h2 Pinboard Posts Example
-= foo.getPosts("ruby")
+.header
+  | Pinboard Tags Example
+
+.foo
+  - bar = foo.getTags
+  - bar.each do |x|
+    = "#{x} "
+  P
+
+.header
+  | Pinboard Posts Example
+.foo
+  - ruby = foo.getPosts("philo")
+  - ruby.each do |y|
+    a href="#{y[:url]}" #{y[:desc]}
+    br
