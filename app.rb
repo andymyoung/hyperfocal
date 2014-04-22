@@ -15,7 +15,9 @@ require_relative 'pinboard'
 get('/styles.css') { scss :styles }
 
 get '/' do
+  config_file = YAML.load_file("config.yml")
   @title = "Hyperfocal"
+  @twitter_token = config_file["twitter"]
   slim :home
 end
 

@@ -30,8 +30,8 @@ https://api.pinboard.in/v1/posts/all
 
 class Pinboard
   def initialize
-    config_file = YAML.load_file("pinboard.yml")
-    @user_token = "?auth_token=" + config_file["token"]
+    config_file = YAML.load_file("config.yml")
+    @user_token = "?auth_token=" + config_file["pinboard"]
   end
 
   def up?
