@@ -2,15 +2,20 @@
 
 require 'sinatra'
 require 'sinatra/reloader' if development?
-#require 'better_errors' if development?
+require 'better_errors' if development?
 require 'slim'
 require 'sass'
-#require 'pry'
+require 'pry'
 
 require_relative 'post'
 require_relative 'pinboard'
 
-
+configure :development do
+  use BetterErrors::Middleware
+  # you need to set the application root in order to abbreviate filenames
+  # within the application:
+  BetterErrors.application_root = File.expand_path('..', __FILE__)
+end
 
 get('/styles.css') { scss :styles }
 
@@ -19,6 +24,10 @@ get '/' do
   @title = "Hyperfocal"
   @twitter_token = config_file["twitter"]
   slim :home
+end
+
+get '/error' do
+  raise 'WTF?'
 end
 
 get '/posts' do
