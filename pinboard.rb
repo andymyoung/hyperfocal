@@ -1,7 +1,7 @@
 require 'yaml'
 require 'net/http'
 require 'nokogiri'
-require 'pry'
+#require 'pry'
 require 'xmlsimple'
 
 PINBOARD_V1_API = "https://api.pinboard.in/v1"

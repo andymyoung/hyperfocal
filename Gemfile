@@ -13,11 +13,12 @@ gem "nokogiri"
 gem "xml-simple"
 
 group :development, :test do
-  gem "pry"
-  gem "pry-plus"
+  # gem "pry"
+  # gem "pry-plus"
   gem "rspec"
-  gem "better_errors"
-  gem "rack-test"
-  gem "rb-fsevent", :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem "guard-rspec"
+  #gem "better_errors"
+  #gem "rack-test"
+  #gem "rb-fsevent", :require => false if RUBY_PLATFORM =~ /darwin/i
+  #gem "guard-rspec"
+  # gem "debugger-xml"
 end

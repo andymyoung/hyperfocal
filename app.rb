@@ -2,10 +2,10 @@
 
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require 'better_errors' if development?
+#require 'better_errors' if development?
 require 'slim'
 require 'sass'
-require 'pry'
+#require 'pry'
 
 require_relative 'post'
 require_relative 'pinboard'
