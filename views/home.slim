@@ -4,7 +4,14 @@
 
 div class="container"
   div id="content" class="column half"
-    | foo
+    - if @posts.any?
+      ul#posts
+        -@posts.each do |post|
+          li
+          a href= "/posts/#{post.id}" #{post.title}
+    - else
+      p No posts have been created yet!
+
 
   div id="tweets" class="column last"
     <a class="twitter-timeline" width="300" height="600" href="https://twitter.com/reefkeeper" data-widget-id="#{@twitter_token}">Tweets by @reefkeeper</a>

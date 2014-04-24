@@ -6,6 +6,7 @@ require 'better_errors' if development?
 require 'slim'
 require 'sass'
 require 'pry'
+require 'pry-byebug'
 
 require_relative 'post'
 require_relative 'pinboard'
@@ -23,6 +24,7 @@ get '/' do
   config_file = YAML.load_file("config.yml")
   @title = "Hyperfocal"
   @twitter_token = config_file["twitter"]
+  @posts = Post.all
   slim :home
 end
 
