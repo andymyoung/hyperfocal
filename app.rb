@@ -58,6 +58,16 @@ get '/links/:tag' do
   slim :links
 end
 
+get '/about' do
+  @title = "About"
+  slim :about
+end
+
+get '/contact' do
+  @title = "Contact"
+  slim :contact
+end
+
 not_found do
   @title = "Four Oh Four"
   slim :not_found
