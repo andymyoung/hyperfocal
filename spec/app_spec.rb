@@ -22,6 +22,11 @@ describe "My Sinatra Application" do
     expect(last_response).to be_ok
   end
 
+  it "should allow access to the Create Post page" do
+    get '/posts/new'
+    expect(last_response).to be_ok
+  end
+
   it "should successfully grab a tag and display it" do
     get '/links/ruby'
     expect(last_response).to be_ok

@@ -34,11 +34,25 @@ end
 
 get '/posts' do
   #binding.pry
+  @title = "Posts"
   @posts = Post.all
   slim :posts
 end
 
+post '/posts' do
+  params[:post].merge!("date" => "#{Time.now}") # TODO: This is an ugly way to get the date in there
+  post = Post.create(params[:post])
+  redirect to("/posts/#{post.id}")
+end
+
+get '/posts/new' do
+  @title = "Create Post"
+  @post = Post.new
+  slim :new_post
+end
+
 get '/posts/:id' do
+  @title = "View Post"
   @post = Post.get(params[:id])
   slim :show_post
 end
