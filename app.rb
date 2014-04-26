@@ -22,7 +22,7 @@ get('/styles.css') { scss :styles }
 
 get '/' do
   config_file = YAML.load_file("config.yml")
-  @title = "Hyperfocal"
+  @title = "Home"
   @twitter_token = config_file["twitter"]
   @posts = Post.all
   slim :home
