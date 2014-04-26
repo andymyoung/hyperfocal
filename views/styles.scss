@@ -48,10 +48,15 @@ color: $white
 font-family : $body-font;
 text-align : left;
 font-size : 12pt;
-padding-left : 30px;
+padding-left : 20px;
 padding-top : 3px;
 padding-bottom : 3px;
 line-height:150%
+}
+
+.bar {
+  // padding-top : 10px;
+  padding-right: 40px;
 }
 
 .container {
