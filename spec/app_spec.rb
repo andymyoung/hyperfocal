@@ -12,6 +12,16 @@ describe "My Sinatra Application" do
     expect(last_response).to be_ok
   end
 
+  it "should allow access to the about page" do
+    get '/about'
+    expect(last_response).to be_ok
+  end
+
+  it "should allow access to the contact page" do
+    get '/contact'
+    expect(last_response).to be_ok
+  end
+
   it "should successfully grab a tag and display it" do
     get '/links/ruby'
     expect(last_response).to be_ok

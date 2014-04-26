@@ -5,8 +5,8 @@ require 'sinatra/reloader' if development?
 require 'better_errors' if development?
 require 'slim'
 require 'sass'
-require 'pry'
-require 'pry-byebug'
+require 'pry' if development?
+require 'pry-byebug' if development?
 
 require_relative 'post'
 require_relative 'pinboard'
@@ -56,6 +56,16 @@ get '/links/:tag' do
   end
   @pinboard = Pinboard.new
   slim :links
+end
+
+get '/about' do
+  @title = "About"
+  slim :about
+end
+
+get '/contact' do
+  @title = "Contact"
+  slim :contact
 end
 
 not_found do
