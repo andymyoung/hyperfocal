@@ -4,24 +4,21 @@ $red:   #f00;
 
 //$header-font: 'Ruda', sans-serif;
 $header-font: 'Maven Pro', sans-serif;
-$body-font: Helvetica, sans-serif;
+//$body-font: Helvetica, Verdana, sans-serif;
+$body-font: Verdana, Helvetica, Arial, sans-serif;
 
 .banner {
 font-family : $header-font;
 text-align : left;
 font-size : 48pt;
 padding-left : 10px;
-// padding-top : 3px;
-// padding-bottom : 3px;
 }
 
 .title {
 font-family : $header-font;
 text-align : left;
-font-size : 24pt;
-padding-left : 10px;
-padding-top : 3px;
-padding-bottom : 3px;
+font-size : 18pt;
+padding-left : 15px;
 }
 
 .header {
