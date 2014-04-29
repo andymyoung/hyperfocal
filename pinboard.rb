@@ -7,25 +7,7 @@ PINBOARD_V1_API = "https://api.pinboard.in/v1"
 GET_TAGS_ENDPOINT = "/tags/get"
 GET_POSTS_ENDPOINT = "/posts/all"
 
-'''
-https://api.pinboard.in/v1/method?auth_token=user:NNNNNN
-
-https://api.pinboard.in/v1/tags/get
-
-https://api.pinboard.in/v1/posts/all
-
-    Returns all bookmarks in the user\'s account.
-
-    argument  type  comment
-    tag tag filter by up to three tags
-    start int offset value (default is 0)
-    results int number of results to return. Default is all
-    fromdt  datetime  return only bookmarks created after this time
-    todt  datetime  return only bookmarks created before this time
-    meta  int include a change detection signature for each bookmark
-
-
-'''
+#TODO: DRY out the network access code
 
 class Pinboard
   def initialize
@@ -51,7 +33,7 @@ class Pinboard
     http.use_ssl = true
     request = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
-    xml_response = Nokogiri::XML(response.body)
+    xml_response = Nokogiri::XML(response.body) #TODO: REfactor this to use XmlSimple
     tag_elements = xml_response.xpath("//tag")
     tag_elements.each do |tag|
       tags << tag.get_attribute('tag')

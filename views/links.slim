@@ -1,6 +1,5 @@
-
 .header
-  | Pinboard Tags Example
+  | Link Tags
 
 .foo
   - bar = @pinboard.getTags
@@ -9,8 +8,9 @@
     a href="/links/#{x}" #{x}
     = spacer
 
+P
 .header
-  | Pinboard Posts Example
+  ="#{@tag.upcase} Links"
 .foo
   - ruby = @pinboard.getLinks("#{@tag}")
   - ruby.each do |y|

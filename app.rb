@@ -1,12 +1,13 @@
 #! /usr/bin/env ruby
 
 require 'sinatra'
-require 'sinatra/reloader' if development?
-require 'better_errors' if development?
 require 'slim'
 require 'sass'
+
 require 'pry' if development?
 require 'pry-byebug' if development?
+require 'sinatra/reloader' if development?
+require 'better_errors' if development?
 
 require_relative 'post'
 require_relative 'pinboard'
@@ -33,7 +34,6 @@ get '/error' do
 end
 
 get '/posts' do
-  #binding.pry
   @title = "Posts"
   @posts = Post.all
   slim :posts
