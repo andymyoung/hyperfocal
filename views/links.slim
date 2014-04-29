@@ -10,7 +10,8 @@
 
 P
 .header
-  ="#{@tag.upcase} Links"
+
+  ="#{@tag} Links"
 .foo
   - ruby = @pinboard.getLinks("#{@tag}")
   - ruby.each do |y|
