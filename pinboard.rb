@@ -7,7 +7,6 @@ PINBOARD_V1_API = "https://api.pinboard.in/v1"
 GET_TAGS_ENDPOINT = "/tags/get"
 GET_POSTS_ENDPOINT = "/posts/all"
 
-#TODO: DRY out the network access code
 
 class Pinboard
   def initialize
@@ -15,24 +14,24 @@ class Pinboard
     @user_token = "?auth_token=" + config_file["pinboard"]
   end
 
-  def up?
-    url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
+  def pbConnect(url)
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     request = Net::HTTP::Get.new(uri.request_uri)
-    response = http.request(request)
+    http.request(request)
+  end
+
+  def up?
+    url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
+    response = pbConnect(url)
     response.code == '200'
   end
 
   def getTags
     tags = []
     url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
-    uri = URI.parse(url)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    request = Net::HTTP::Get.new(uri.request_uri)
-    response = http.request(request)
+    response = pbConnect(url)
     xml_response = Nokogiri::XML(response.body) #TODO: REfactor this to use XmlSimple
     tag_elements = xml_response.xpath("//tag")
     tag_elements.each do |tag|
@@ -47,11 +46,7 @@ class Pinboard
     if tag.length > 0
       url = url + "&tag=#{tag}"
     end
-    uri = URI.parse(url)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    request = Net::HTTP::Get.new(uri.request_uri)
-    response = http.request(request)
+    response = pbConnect(url)
     foo = XmlSimple.xml_in(response.body)
     a = foo["post"]
     a.each do |entry|
