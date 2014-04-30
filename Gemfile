@@ -9,7 +9,6 @@ gem "sass"
 gem "sqlite3"
 gem "data_mapper"
 gem "dm-sqlite-adapter"
-gem "nokogiri"
 gem "xml-simple"
 
 group :development, :test do

@@ -1,6 +1,5 @@
 require 'yaml'
 require 'net/http'
-require 'nokogiri'
 require 'xmlsimple'
 
 PINBOARD_V1_API = "https://api.pinboard.in/v1"
@@ -32,10 +31,9 @@ class Pinboard
     tags = []
     url = "#{PINBOARD_V1_API}#{GET_TAGS_ENDPOINT}#{@user_token}"
     response = pbConnect(url)
-    xml_response = Nokogiri::XML(response.body) #TODO: REfactor this to use XmlSimple
-    tag_elements = xml_response.xpath("//tag")
-    tag_elements.each do |tag|
-      tags << tag.get_attribute('tag')
+    tags_hash = XmlSimple.xml_in(response.body)
+    tags_hash['tag'].each do |tag|
+      tags << tag['tag']
     end
     return tags
   end
