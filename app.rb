@@ -25,7 +25,7 @@ get '/' do
   config_file = YAML.load_file("config.yml")
   @title = "Home"
   @twitter_token = config_file["twitter"]
-  @posts = Post.all
+  @posts = Post.all(:order => [ :id.desc ], :limit => 5)
   slim :home
 end
 
