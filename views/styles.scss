@@ -97,10 +97,10 @@ color: $color;
 }
 
 nav {
-  @include tabs ($background: $black, $color: $white);
+  @include tabs ($background: $white, $color: $black);
   font-family: $header-font;
-  // font-weight: bold;
-  padding-left : 15px;
+  font-size: 12pt;
+  padding-left : 8px;
   padding-right: 30px;
 }
 
