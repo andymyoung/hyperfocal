@@ -19,6 +19,13 @@ configure :development do
   BetterErrors.application_root = File.expand_path('..', __FILE__)
 end
 
+helpers do
+  def css(*stylesheets)
+    stylesheets.map do |stylesheet|
+      "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"    end.join
+  end
+end
+
 get('/styles.css') { scss :styles }
 
 get '/' do

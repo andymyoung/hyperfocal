@@ -2,9 +2,10 @@ doctype html
 html lang="en"
 head
   title= "Hyperfocal: " + @title
-  link rel="stylesheet" href="/styles.css"
-  link href='http://fonts.googleapis.com/css?family=Maven+Pro:500' rel='stylesheet' type='text/css'
   meta charset="utf-8"
+  == css :styles
+  link href='http://fonts.googleapis.com/css?family=Maven+Pro:500' rel='stylesheet' type='text/css'
+
 
 body
   header
@@ -13,4 +14,16 @@ body
     .title
       | Andy M. Young's Website
       P
+  div class="nav"
+    ul
+      li
+        a href= "/" Home
+      li
+        a href= "/posts"  Posts
+      li
+        a href= "/links"  Links
+      li
+        a href= "/about"  About
+      li
+        a href= "/contact"  Contact
   == yield
