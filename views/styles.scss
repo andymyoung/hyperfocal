@@ -73,6 +73,10 @@ line-height:150%
   width: auto;
 }
 
+.bigger {
+  font-size: 125%;
+}
+
 @mixin tabs ($background: $black, $color: $white) {
   ul {
     list-style: none;

@@ -5,11 +5,13 @@ div class="container"
     - if @posts.any?
       ul#posts
         -@posts.each do |post|
-          a href= "/posts/#{post.id}" #{post.title}
-          |#{post.date.strftime(" %B %e, %Y")}
-          |<br>
+          <span class='bigger'>
+            a href= "/posts/#{post.id}" #{post.title}
+          </span> posted on  #{post.date.strftime(" %B %e, %Y")}
+
+          br
           | #{post.body}
-          |<P>
+          p
     - else
       p No posts have been created yet!
 
