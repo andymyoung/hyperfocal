@@ -2,53 +2,51 @@ $black: #444;
 $white: #fff;
 $red:   #f00;
 
-//$header-font: 'Ruda', sans-serif;
 $header-font: 'Maven Pro', sans-serif;
-//$body-font: Helvetica, Verdana, sans-serif;
 $body-font: Verdana, Helvetica, Arial, sans-serif;
 
 .banner {
-font-family : $header-font;
-text-align : left;
-font-size : 48pt;
-padding-left : 10px;
+  font-family : $header-font;
+  text-align : left;
+  font-size : 48pt;
+  padding-left : 10px;
 }
 
 .title {
-font-family : $header-font;
-text-align : left;
-font-size : 18pt;
-padding-left : 15px;
+  font-family : $header-font;
+  text-align : left;
+  font-size : 18pt;
+  padding-left : 15px;
 }
 
 .header {
-font-family : $header-font;
-text-align : left;
-font-size : 18pt;
-padding-left : 10px;
-padding-top : 3px;
-padding-bottom : 3px;
+  font-family : $header-font;
+  text-align : left;
+  font-size : 18pt;
+  padding-left : 10px;
+  padding-top : 3px;
+  padding-bottom : 3px;
 }
 
 .not_found {
-font-family : $body-font;
-text-align : left;
-font-size : 24pt;
-padding-left : 75px;
-padding-top : 3px;
-padding-bottom : 3px;
-background-color: $red;
-color: $white
+  font-family : $body-font;
+  text-align : left;
+  font-size : 24pt;
+  padding-left : 75px;
+  padding-top : 3px;
+  padding-bottom : 3px;
+  background-color: $red;
+  color: $white
 }
 
 .foo {
-font-family : $body-font;
-text-align : left;
-font-size : 12pt;
-padding-left : 20px;
-padding-top : 3px;
-padding-bottom : 3px;
-line-height:150%
+  font-family : $body-font;
+  text-align : left;
+  font-size : 12pt;
+  padding-left : 20px;
+  padding-top : 3px;
+  padding-bottom : 3px;
+  line-height:150%
 }
 
 .bar {
@@ -84,19 +82,19 @@ line-height:150%
     padding: 0;
     background: $background;
     overflow: hidden;
-}
-li {
-    float: left;
   }
-a{
-text-decoration: none;
-display: block;
-padding: 8px;
-background: $background;
-color: $color;
-  &:hover {
-    background: darken($background, 20%);
-    }
+  li {
+      float: left;
+  }
+  a {
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  background: $background;
+  color: $color;
+    &:hover {
+      background: darken($background, 20%);
+      }
   }
 }
 
