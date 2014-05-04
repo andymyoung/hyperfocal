@@ -39,7 +39,28 @@ $body-font: Verdana, Helvetica, Arial, sans-serif;
   color: $white
 }
 
-.foo {
+.links {
+  font-family : $body-font;
+  text-align : left;
+  font-size : 12pt;
+  padding-left : 40px;
+  padding-top : 3px;
+  padding-bottom : 3px;
+  line-height:150%
+}
+
+.twitter_widget {
+  padding-top : 20px;
+  padding-right: 40px;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.postings {
+  float: left;
+  width: 60%;
   font-family : $body-font;
   text-align : left;
   font-size : 12pt;
@@ -49,26 +70,15 @@ $body-font: Verdana, Helvetica, Arial, sans-serif;
   line-height:150%
 }
 
-.bar {
-  padding-top : 20px;
-  padding-right: 40px;
-}
+// .half{
+//   width: 60%;
+// }
 
-.container {
-  overflow: hidden;
-}
-
-.column {
-  float: left;
-}
-
-.half{
-  width: 60%;
-}
-
-.last{
+.twitter{
   float: right;
   width: auto;
+  padding-top : 20px;
+  padding-right: 40px;
 }
 
 .bigger {
