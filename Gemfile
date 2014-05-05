@@ -8,6 +8,7 @@ gem "slim"
 gem "sass"
 gem "data_mapper"
 gem "xml-simple"
+gem "kramdown"
 
 group :development, :test do
   gem "sqlite3"
