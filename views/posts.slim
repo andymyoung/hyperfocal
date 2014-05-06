@@ -1,9 +1,11 @@
-h2 Blog Posts
-a href= "/posts/new" Create a new post
-- if @posts.any?
-  ul#posts
-    -@posts.each do |post|
-      li
-        a href= "/posts/#{post.id}" #{post.title}
-- else
-  p No posts have been created yet!
+.header
+  h2 Blog Posts
+.postings
+  a href= "/posts/new" Create a new post
+  - if @posts.any?
+    ul#posts
+      -@posts.each do |post|
+        li
+          a href= "/posts/#{post.id}" #{post.title}
+  - else
+    p No posts have been created yet!
