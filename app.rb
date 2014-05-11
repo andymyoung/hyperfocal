@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'slim'
 require 'sass'
+require 'kramdown'
 
 require 'pry' if development?
 require 'pry-byebug' if development?
@@ -24,6 +25,10 @@ helpers do
     stylesheets.map do |stylesheet|
       "<link href=\"/#{stylesheet}.css\" media=\"screen, projection\" rel=\"stylesheet\" />"    end.join
   end
+end
+
+def markdownToHtml(text)
+  Kramdown::Document.new(text).to_html
 end
 
 get('/styles.css') { scss :styles }
